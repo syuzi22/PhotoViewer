@@ -6,7 +6,7 @@ interface ImageSelectorProps {
   selectedImage: string;
 }
 
-export const ImageSelector = ({ imageUrls, onClick, selectedImage }: ImageSelectorProps) => {
+export const ImageSelector = ({imageUrls, onClick, selectedImage }: ImageSelectorProps) => {
   return (
     <div>
       <div>Select your photo</div>
