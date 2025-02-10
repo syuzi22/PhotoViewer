@@ -12,10 +12,10 @@ function App() {
   };
 
   return (
-    <div className = 'photo-viewer'>
+    <div className="photo-viewer">
       <h1>React Photo Viewer</h1>
       <PhotoViewer url={selectedImage} />
-      <ImageSelector imageUrls={imageUrls} onClick={handleClick} />
+      <ImageSelector imageUrls={imageUrls} onClick={handleClick} selectedImage={selectedImage}/>
     </div>
   );
 }

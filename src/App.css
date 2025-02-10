@@ -38,6 +38,13 @@
   }
 }
 
+@media (max-width:500px){
+  h1{
+    font-size: 18px;
+  }
+
+}
+
 .card {
   padding: 2em;
 }
