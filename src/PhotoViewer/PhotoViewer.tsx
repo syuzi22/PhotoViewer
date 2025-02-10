@@ -1,9 +1,13 @@
-import React from "react";  // import React (to provide access to TSX)
+import './PhotoViewer.css';
 
-export function PhotoViewer({url}) {    // declare and export new function called 'PhotoViewer'
-    return (                
-        <div>               
-            <img src={url} />
-        </div>
-    );
+interface PhotoViewerProps {
+  url: string;
 }
+
+export const PhotoViewer = ({ url }: PhotoViewerProps) => {
+  return (
+    <div className="viewer">
+      <img src={url} />
+    </div>
+  );
+};
