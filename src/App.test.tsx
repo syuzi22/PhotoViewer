@@ -1,7 +1,5 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-//import userEvent from '@testing-library/user-event';
-import renderer from "react-test-renderer";
+import { render, screen, waitFor  } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import { PhotoViewer } from "./PhotoViewer/PhotoViewer";
 import App from "./App";
 import { imageUrls } from "./utils";
@@ -29,18 +27,20 @@ test("getImageUrls to not include broken images", () => {
 });
 
 test("renders photoviewer image correctly", async () => {
-  const tree = renderer
-    .create(<PhotoViewer url="https://picsum.photos/id/600/1600/900.jpg" />)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+  const { asFragment } = render(<PhotoViewer url="https://picsum.photos/id/600/1600/900.jpg" />)
+  expect(asFragment).toMatchSnapshot();
 });
 
-/* (Test is failing due to library issue)
-test('should update the photoviewer image when the thumbnail is clicked',async()=>{
-    //const user = userEvent.setUp();
+test('should update the photoviewer image when the thumbnail is clicked', async()=>{
     render(<App />)
-
     const photoViewerImage = screen.getByTestId('image') as HTMLImageElement;
-    await userEvent.click(screen.getByTestId('image-selector-3'));
-    expect(photoViewerImage).toEqual('https://picsum.photos/id/604/1600/900.jpg');
-});*/
+    expect(photoViewerImage.src).toEqual('https://picsum.photos/id/600/1600/900.jpg');
+    const selectedPhoto = screen.getByTestId('image-selector-3');
+    await userEvent.click(selectedPhoto);
+
+    await waitFor(() => {
+      expect(photoViewerImage).toBeInTheDocument();
+      expect(photoViewerImage.src).toEqual('https://picsum.photos/id/604/1600/900.jpg');
+      expect(selectedPhoto.parentElement?.className).toContain('image--selected');
+    });
+});
