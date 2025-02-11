@@ -15,4 +15,3 @@ function getImageUrls() {
 
 
 export const imageUrls = getImageUrls();
-console.log(imageUrls[0]);

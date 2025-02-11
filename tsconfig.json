@@ -2,8 +2,9 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "types": ["@testing-library/jest-dom"],
-    "lib": ["es2017", "dom"],
+    "types": ["@testing-library/jest-dom", "@testing-library/user-event"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "lib": ["es2017"],
   },
   "files": [],
   "references": [
