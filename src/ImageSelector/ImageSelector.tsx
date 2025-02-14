@@ -13,7 +13,7 @@ export const ImageSelector = ({ imageUrls, onClick, selectedImage }: ImageSelect
       <ul className="image-container">
         {imageUrls.map((url: string, index: number) => (
           <li key={`image-selector-{${index}}`} className={`image ${url === selectedImage ? 'image--selected': ''}`}>
-            <img className="photo" src={url} onClick={() => onClick(url)} />
+            <img className="photo" data-testid={`image-selector-${index}`} src={url} onClick={() => onClick(url)} />
           </li>
         )
       )}

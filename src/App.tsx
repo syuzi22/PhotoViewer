@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PhotoViewer } from "./PhotoViewer/PhotoViewer";
 import "./App.css";
 import { ImageSelector } from "./ImageSelector/ImageSelector";
-import { imageUrls } from "./utils.ts";
+import { imageUrls } from "./utils";
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(imageUrls[0]);

@@ -7,7 +7,7 @@ interface PhotoViewerProps {
 export const PhotoViewer = ({ url }: PhotoViewerProps) => {
   return (
     <div className="viewer">
-      <img src={url} />
+      <img src={url} data-testid="image" />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-const brokenImages = [1, 24, 32, 36, 44, 47];
+export const brokenImages = [1, 24, 32, 36, 44, 47];
 
 function getImageUrls() {
   const urls = [];
@@ -12,5 +12,6 @@ function getImageUrls() {
 
   return urls;
 }
+
 
 export const imageUrls = getImageUrls();
